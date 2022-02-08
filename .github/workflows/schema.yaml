@@ -1,0 +1,36 @@
+name: SyncPSRuleSchema
+
+on:
+  schedule:
+    - cron: '0 0 1 * *' # 00:00 on first day of each month
+  workflow_dispatch:
+    
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      pull-requests: write
+    
+    steps:
+
+      - name: 'Checkout PSRule-vscode'
+        uses: actions/checkout@v2.4.0
+        with:
+          path: 'PSRule-vscode'
+
+      - name: 'Checkout PSRule'
+        uses: actions/checkout@v2.4.0
+        with:
+          repository: 'microsoft/PSRule'
+          path: 'PSRule'
+
+      - name: Configure
+        run: |
+          git config user.name github-actions
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+
+      - name: Display Files
+        run: Get-ChildItem
+        shell: pwsh
