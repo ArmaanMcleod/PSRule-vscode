@@ -16,10 +16,8 @@ jobs:
     
     steps:
 
-      - name: 'Checkout PSRule-vscode'
+      - name: Checkout
         uses: actions/checkout@v2.4.0
-        with:
-          path: 'PSRule-vscode'
 
       - name: 'Checkout PSRule'
         uses: actions/checkout@v2.4.0
