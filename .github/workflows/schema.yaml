@@ -32,6 +32,7 @@ jobs:
 
       - name: Copy Schemas
         run: |
+          $PWD
           $schemaDirectory = [System.IO.Path]::Combine($env:GITHUB_WORKSPACE, 'PSRule', 'schemas')
           Copy-Item -Path $schemaDirectory -Destination schemas -Recurse -Force
           git status
