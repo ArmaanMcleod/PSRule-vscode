@@ -1,6 +1,7 @@
 name: SyncPSRuleSchema
 
 on:
+  push:
   schedule:
     - cron: '0 0 1 * *' # 00:00 on first day of each month
   workflow_dispatch:
