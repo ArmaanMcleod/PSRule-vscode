@@ -34,7 +34,6 @@ jobs:
         run: |
           $PWD
           $sourceSchemaDirectory = [System.IO.Path]::Combine($env:GITHUB_WORKSPACE, 'PSRule', 'schemas')
-          $destSchemaDirectory = Resolve-Path -Path schemas -Relative
-          Get-ChildItem -Path $sourceSchemaDirectory -File -Filter *.schema.json | ForEach-Object { Copy-Item -Path $_.FullName -Destination $destSchemaDirectory }
+          Get-ChildItem -Path $sourceSchemaDirectory -File -Filter *.schema.json | ForEach-Object { Copy-Item -Path $_.FullName -Destination schemas }
           git status
         shell: pwsh
