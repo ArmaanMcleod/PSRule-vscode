@@ -9,8 +9,6 @@ jobs:
   sync:
     runs-on: ubuntu-latest
 
-    if: github.repository == 'microsoft/PSRule-vscode'
-
     permissions:
       contents: write
       pull-requests: write
